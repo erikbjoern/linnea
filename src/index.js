@@ -1,14 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom'
-import App from './App.jsx';
+import MainPage from './components/MainPage.jsx';
+import WelcomePage from './components/WelcomePage.jsx'
+import './style/App.css'
 import * as serviceWorker from './serviceWorker';
 import 'semantic-ui-css/semantic.min.css'
 
 ReactDOM.render(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>,
+  <>
+    <MainPage/>
+    <WelcomePage/>
+  </>,
   document.getElementById('root')
 );
 
