@@ -10,7 +10,8 @@ class MainPage extends Component {
     visible: true,
     visible2: false,
     visible3: false,
-    visible4: false
+    visible4: false,
+    visible5: true
   }
 
   onClickHandler = () => {
@@ -23,7 +24,7 @@ class MainPage extends Component {
       setTimeout(() => {this.setState({visible3: true})}, 7000)
       setTimeout(() => {alert("Grattis Linnéa! Jag älskar dig <3 <3 <3 Hoppas dagen blir bra (jag har inte köpt spelet, jag kunde inte logga in, men jag kommer swisha dig!) //din hacker-hubby")}, 10000)
     } else {
-      console.log(`nej, inte ${answer}`)
+      this.setState((prevState) => ({ visible5: !prevState.visible5 }))
     }
   }
 
@@ -250,10 +251,12 @@ class MainPage extends Component {
 
             </Container>
             <Container align="center">
-              <Segment inverted style={{display: "flex", justifyContent: "space-evenly", alignItems: "center", backgroundColor: "#a9c2c4", width: "50%", marginTop: "40px"}}>
-                <input fluid id="input" onKeyDown={this.enter} className="input" type="text"/>
-                <Button basic onClick={this.onClickHandler}>Testa!</Button>            
-              </Segment>
+              <Transition animation="shake" duration={1000} visible={this.state.visible5}>
+                <Segment inverted style={{display: "flex", justifyContent: "space-evenly", alignItems: "center", backgroundColor: "#a9c2c4", width: "50%", marginTop: "40px"}}>
+                  <input fluid id="input" onKeyDown={this.enter} className="input" type="text"/>
+                  <Button basic onClick={this.onClickHandler}>Testa!</Button>            
+                </Segment>
+              </Transition>
             </Container>
           </Container>
         </Transition>
