@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { Container, Image, Header, Transition } from 'semantic-ui-react';
 import car from '../images/car.png'
-import { Link } from 'react-router-dom'
 
 class WelcomePage extends Component {
   state = {
